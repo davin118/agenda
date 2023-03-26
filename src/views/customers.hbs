@@ -1,0 +1,59 @@
+
+ {{> _header}}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-7">
+                <table class="table  table-bordered table-hover">
+                    <thead>
+                        <tr >
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Acction</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#if data}}
+                        {{#each data}}
+                       
+                        <tr>
+                            <th>{{@index}}</th>
+                            <th>{{this.name}}</th>
+                            <th>{{this.address}}</th>
+                            <th>{{this.phone}}</th>
+                            <th>
+                                <a href="/delete/{{this.id}}" class="btn btn-danger">delete</a>
+                                <a href="/update/{{this.id}}" class="btn btn-info">update</a>
+                            </th>
+                            
+                        </tr>
+                        {{/each}}
+                        {{/if}}
+
+                    </tbody>
+                </table>
+                
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/add" method="post">
+                            <div class="form-group mb-3">
+                                <input type="text" name="name" placeholder="Name" class="form-control ">
+                            </div>
+                            <div class="form-group mb-3">
+                                <input type="text" name="address" placeholder="Address" class="form-control">
+                            </div>
+                            <div class="form-group mb-3">
+                                <input type="text" name="phone" placeholder="Phone" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary "> Save Customer </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{>_footer}}
