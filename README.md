@@ -1,7 +1,11 @@
 # agenda
+
 #create a mysql database
+
 create database crudnodejs;
+
 use crudnodejs;
+
 create table customer(
   id int unsigned auto_increment primary key,
   name varchar(50) not null,
